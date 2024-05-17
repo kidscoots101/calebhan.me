@@ -6,7 +6,8 @@ function Home() {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
     gridGap: '10px',
-    marginTop: 30
+    marginTop: 30,
+    marginBottom: 20
   };
 
   const normalImageStyle = {
@@ -56,6 +57,8 @@ function Home() {
       <img src={require("./images/image5.png")} alt="Image 3" style={shortImageStyle} />
       <img src={require("./images/image6.png")} alt="Image 1" style={normalImageStyle1}/>
     </div>
+    <text style={{ fontSize: 16, marginTop: 0, color: "#d4d4d4", marginTop: 30 }} t>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.    </text>
 
     </div>
   );
