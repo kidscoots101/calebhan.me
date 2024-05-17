@@ -27,14 +27,171 @@ function Competitions() {
 
 function WorkExperience() {
   return (
-    <div style={{ alignSelf: "flex-start"}}>
+    <div style={{ alignSelf: "flex-start" }}>
       <p style={{ marginTop: 50 }}>my work</p>
-      <text style={{fontSize: 15, marginTop: 0}}t>Webxial Digital is the first & only digital agency specialising in property and recognised by top real estate agencies.</text> <br />
-      <div style={{backgroundColor: 'rgb(163,163,163)', width: "100%", height: 1, marginTop: 30}}/>
+      <text style={{ fontSize: 18, marginTop: 0, color: "#d4d4d4" }} t>
+        Webxial Digital is the first & only digital agency specialising in
+        property and recognised by top real estate agencies.
+      </text>{" "}
+      <br />
+      <div
+        style={{
+          backgroundColor: "rgb(163,163,163)",
+          width: "100%",
+          height: 0.5,
+          marginTop: 30,
+        }}
+      />
       <div style={{ marginBottom: 10 }}>
         <p style={{ fontSize: 22, marginBottom: 5 }}>Webxial</p>
-        <text style={{ fontSize: 15, color: 'rgb(163 163 163)' }}>Business Strategy Director</text>  <br />
-        <text style={{fontSize: 15}}t>Webxial Digital is the first & only digital agency specialising in property and recognised by top real estate agencies.</text> <br />
+        <text style={{ fontSize: 15, color: "rgb(163 163 163)" }}>
+          Business Strategy Director, 2021-present
+        </text>{" "}
+        <br />
+        <p style={{ fontSize: 18, color: "#d4d4d4" }}>
+          Webxial Digital is the first & only digital agency specialising in
+          property and recognised by top real estate agencies.
+        </p>
+        <p
+          style={{
+            fontSize: 18,
+            marginLeft: "20px",
+            maxWidth: "90%",
+            color: "#d4d4d4",
+          }}
+        >
+          • In 2021, I was promoted to Director of DevRel. We translated
+          customer pain back into the product roadmap. We spoke at conferences,
+          wrote blog posts, and created videos. We built open-source examples
+          and contributed back to the product.
+        </p>
+        <p
+          style={{
+            fontSize: 18,
+            marginLeft: "20px",
+            maxWidth: "90%",
+            color: "#d4d4d4",
+          }}
+        >
+          • In 2022, I was promoted to VP of Developer Experience, now also
+          leading our product documentation team. My team created a new free
+          course to teach Next.js, which had 17 million page views that year. I
+          shipped. I partnered with our open-source community, collaborating
+          with frameworks like Nuxt and Astro and sponsoring individuals and
+          projects.
+        </p>
+        <p style={{ fontSize: 18, color: "#d4d4d4" }}>
+          Since I joined Vercel in 2020, Next.js active developers have grown
+          1000%, now at ~900k. Next.js is now a top 10 software project on
+          GitHub with 121k stars. It's used by Walmart, ChatGPT, Starbucks,
+          Okta, Datastax, Notion, and more.
+        </p>
+      </div>
+      <div
+        style={{
+          backgroundColor: "rgb(163,163,163)",
+          width: "100%",
+          height: 0.5,
+          marginTop: 30,
+        }}
+      />
+      <div style={{ marginBottom: 10 }}>
+        <p style={{ fontSize: 22, marginBottom: 5 }}>Webxial</p>
+        <text style={{ fontSize: 15, color: "rgb(163 163 163)" }}>
+          Business Strategy Director, 2021-present
+        </text>{" "}
+        <br />
+        <p style={{ fontSize: 18, color: "#d4d4d4" }}>
+          Webxial Digital is the first & only digital agency specialising in
+          property and recognised by top real estate agencies.
+        </p>
+        <p
+          style={{
+            fontSize: 18,
+            marginLeft: "20px",
+            maxWidth: "90%",
+            color: "#d4d4d4",
+          }}
+        >
+          • In 2021, I was promoted to Director of DevRel. We translated
+          customer pain back into the product roadmap. We spoke at conferences,
+          wrote blog posts, and created videos. We built open-source examples
+          and contributed back to the product.
+        </p>
+        <p
+          style={{
+            fontSize: 18,
+            marginLeft: "20px",
+            maxWidth: "90%",
+            color: "#d4d4d4",
+          }}
+        >
+          • In 2022, I was promoted to VP of Developer Experience, now also
+          leading our product documentation team. My team created a new free
+          course to teach Next.js, which had 17 million page views that year. I
+          shipped. I partnered with our open-source community, collaborating
+          with frameworks like Nuxt and Astro and sponsoring individuals and
+          projects.
+        </p>
+        <p style={{ fontSize: 18, color: "#d4d4d4" }}>
+          Since I joined Vercel in 2020, Next.js active developers have grown
+          1000%, now at ~900k. Next.js is now a top 10 software project on
+          GitHub with 121k stars. It's used by Walmart, ChatGPT, Starbucks,
+          Okta, Datastax, Notion, and more.
+        </p>
+      </div>
+      <div
+        style={{
+          backgroundColor: "rgb(163,163,163)",
+          width: "100%",
+          height: 0.5,
+          marginTop: 30,
+        }}
+      />
+      <div style={{ marginBottom: 10 }}>
+        <p style={{ fontSize: 22, marginBottom: 5 }}>Webxial</p>
+        <text style={{ fontSize: 15, color: "rgb(163 163 163)" }}>
+          Business Strategy Director, 2021-present
+        </text>{" "}
+        <br />
+        <p style={{ fontSize: 18, color: "#d4d4d4" }}>
+          Webxial Digital is the first & only digital agency specialising in
+          property and recognised by top real estate agencies.
+        </p>
+        <p
+          style={{
+            fontSize: 18,
+            marginLeft: "20px",
+            maxWidth: "90%",
+            color: "#d4d4d4",
+          }}
+        >
+          • In 2021, I was promoted to Director of DevRel. We translated
+          customer pain back into the product roadmap. We spoke at conferences,
+          wrote blog posts, and created videos. We built open-source examples
+          and contributed back to the product.
+        </p>
+        <p
+          style={{
+            fontSize: 18,
+            marginLeft: "20px",
+            maxWidth: "90%",
+            color: "#d4d4d4",
+          }}
+        >
+          • In 2022, I was promoted to VP of Developer Experience, now also
+          leading our product documentation team. My team created a new free
+          course to teach Next.js, which had 17 million page views that year. I
+          shipped. I partnered with our open-source community, collaborating
+          with frameworks like Nuxt and Astro and sponsoring individuals and
+          projects.
+        </p>
+        <p style={{ fontSize: 18, color: "#d4d4d4" }}>
+          Since I joined Vercel in 2020, Next.js active developers have grown
+          1000%, now at ~900k. Next.js is now a top 10 software project on
+          GitHub with 121k stars. It's used by Walmart, ChatGPT, Starbucks,
+          Okta, Datastax, Notion, and more.
+        </p>
       </div>
     </div>
   );
