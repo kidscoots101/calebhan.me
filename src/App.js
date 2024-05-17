@@ -2,6 +2,42 @@ import React, { useState } from "react";
 import "./App.css";
 
 function Home() {
+  const gridContainerStyle = {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridGap: '10px',
+    marginTop: 30
+  };
+
+  const normalImageStyle = {
+    width: '100%',
+    height: '50%',
+    borderRadius: "10px"
+  };
+
+  const normalImageStyle1 = {
+    width: '100%',
+    height: '200%',
+    borderRadius: "10px",
+    marginTop: -150
+  };
+
+  const tallImageStyle = {
+    width: '100%',
+    height: '300px',
+    objectFit: 'cover',
+    borderRadius: "10px"
+
+  };
+
+  const shortImageStyle = {
+    width: '100%',
+    height: '150px',
+    objectFit: 'cover',
+    borderRadius: "10px"
+
+  };
+
   return (
     <div style={{ alignSelf: "flex-start" }}>
       <p style={{ marginTop: 50 }}>hey, I'm asher 👋</p>
@@ -12,7 +48,15 @@ function Home() {
         deployments in 2023 alone.
       </text>{" "}
       <br />
-      <text></text>
+      <div style={gridContainerStyle}>
+      <img src={require("./images/image1.png")} alt="Image 1" style={normalImageStyle} />
+      <img src={require("./images/image2.png")} alt="Image 2" style={tallImageStyle} />
+      <img src={require("./images/image3.png")} alt="Image 1" style={normalImageStyle} />
+      <img src={require("./images/image4.png")} alt="Image 1" style={normalImageStyle1} />
+      <img src={require("./images/image5.png")} alt="Image 3" style={shortImageStyle} />
+      <img src={require("./images/image6.png")} alt="Image 1" style={normalImageStyle1}/>
+    </div>
+
     </div>
   );
 }
@@ -202,6 +246,24 @@ function Volunteering() {
   return (
     <div style={{ alignSelf: "flex-start"}}>
       <p style={{marginTop: 50}}>volunteerism</p>
+      <p style={{fontSize: 22}}>SingHealth-SST Health Innovation Bootcamp {" "}
+      <text style={{ fontSize: 15, color: "rgb(163 163 163)", marginTop: 0 }}>
+          2023
+        </text>{" "}
+      </p>
+      <div style={{display: 'flex'}}>
+        <div style={{flexDirection: 'row'}}>
+      <p style={{fontSize: 18, color: '#d4d4d4'}}>
+      • I served as a student helper during this bootcamp, designed to enhance mental well-being awareness among young individuals. 
+      </p> 
+      <p style={{fontSize: 18, color: '#d4d4d4'}}>
+        • I was responsible for teaching participants how to use 3D SketchUp software, as well as offering guidance and insights on their conceptual ideas.
+      </p>
+      </div>
+
+      <img src={ require('./singhealth.png')} style={{width: "50%"}} />
+      </div>
+
     </div>
   );
 }
