@@ -3,10 +3,15 @@ import "./App.css";
 
 function Home() {
   return (
-    <div style={{ alignSelf: "flex-start"}}>
-      <p style={{marginTop: 50}}>hey, I'm asher 👋</p>
-      <text style={{fontSize: 16, marginTop: 0, color: '#d4d4d4'}}t>I’m a student entrepreneur and debater. I currently lead my schools debate club and run a digital agency on the side, where I lead business strategy and development, gaining 42 new clients and 89 new website deployments in 2023 alone.</text> <br />
-
+    <div style={{ alignSelf: "flex-start" }}>
+      <p style={{ marginTop: 50 }}>hey, I'm asher 👋</p>
+      <text style={{ fontSize: 16, marginTop: 0, color: "#d4d4d4" }} t>
+        I’m a student entrepreneur and debater. I currently lead my schools
+        debate club and run a digital agency on the side, where I lead business
+        strategy and development, gaining 42 new clients and 89 new website
+        deployments in 2023 alone.
+      </text>{" "}
+      <br />
       <text></text>
     </div>
   );
