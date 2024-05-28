@@ -18,7 +18,7 @@ function Home() {
 
   const normalImageStyle1 = {
     width: '100%',
-    height: '200%',
+    height: '110%',
     borderRadius: "10px",
     marginTop: -150
   };
@@ -27,8 +27,7 @@ function Home() {
     width: '100%',
     height: '300px',
     objectFit: 'cover',
-    borderRadius: "10px"
-
+    borderRadius: "10px",
   };
 
   const shortImageStyle = {
@@ -41,7 +40,7 @@ function Home() {
 
   return (
     <div style={{ alignSelf: "flex-start" }}>
-      <p style={{ marginTop: 50 }}>hey, I'm asher 👋</p>
+      <p style={{ marginTop: 50 }}>hey, I'm caleb 👋</p>
       <text style={{ fontSize: 16, marginTop: 0, color: "#d4d4d4" }} t>
         I’m a student entrepreneur and debater. I currently lead my schools
         debate club and run a digital agency on the side, where I lead business
@@ -57,9 +56,6 @@ function Home() {
       <img src={require("./images/image5.png")} alt="Image 3" style={shortImageStyle} />
       <img src={require("./images/image6.png")} alt="Image 1" style={normalImageStyle1}/>
     </div>
-    <text style={{ fontSize: 16, marginTop: 0, color: "#d4d4d4", marginTop: 30 }} t>
-    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.    </text>
-
     </div>
   );
 }
@@ -72,10 +68,10 @@ function Competitions() {
   );
 }
 
-function WorkExperience() {
+function Projects() {
   return (
     <div style={{ alignSelf: "flex-start" }}>
-      <p style={{ marginTop: 50 }}>my work</p>
+      <p style={{ marginTop: 50 }}>cool projects</p>
       <text style={{ fontSize: 18, marginTop: 0, color: "#d4d4d4" }} t>
         Webxial Digital is the first & only digital agency specialising in
         property and recognised by top real estate agencies.
@@ -249,22 +245,25 @@ function Volunteering() {
   return (
     <div style={{ alignSelf: "flex-start"}}>
       <p style={{marginTop: 50}}>volunteerism</p>
-      <p style={{fontSize: 22}}>SingHealth-SST Health Innovation Bootcamp {" "}
+      <p style={{fontSize: 22}}>HackOMania Student Volunteer {" "}
       <text style={{ fontSize: 15, color: "rgb(163 163 163)", marginTop: 0 }}>
-          2023
+          2024
         </text>{" "}
       </p>
       <div style={{display: 'flex'}}>
         <div style={{flexDirection: 'row'}}>
       <p style={{fontSize: 18, color: '#d4d4d4'}}>
-      • I served as a student helper during this bootcamp, designed to enhance mental well-being awareness among young individuals. 
+      • I served as a student helper during this hackathon, held at the Rakuten Office in Singapore.  
       </p> 
       <p style={{fontSize: 18, color: '#d4d4d4'}}>
-        • I was responsible for teaching participants how to use 3D SketchUp software, as well as offering guidance and insights on their conceptual ideas.
+        • I helped the team manage logistisc and distribute out food and swag during the Hackathon itself.
+      </p>
+      <p style={{fontSize: 18, color: '#d4d4d4'}}>
+        • Overall was a fun experience, managed to network with numerous SST Alumni and heard about the innovative products teams made in 24 hours.
       </p>
       </div>
 
-      <img src={ require('./singhealth.png')} style={{width: "50%"}} />
+      <img src={ require('./hackomania.jpeg')} style={{width: "50%"}} />
       </div>
 
     </div>
@@ -299,8 +298,8 @@ function App() {
           >
             competitions
           </a>
-          <a href="#work" onClick={() => handleNavigation("work")}>
-            work experience
+          <a href="#projects" onClick={() => handleNavigation("projects")}>
+            projects
           </a>
           <a
             href="#volunteering"
@@ -311,7 +310,7 @@ function App() {
         </nav>
         {activeTab === "home" && <Home />}
         {activeTab === "competitions" && <Competitions />}
-        {activeTab === "work" && <WorkExperience />}
+        {activeTab === "projects" && <Projects />}
         {activeTab === "volunteering" && <Volunteering />}
       </header>
     </div>
