@@ -18,7 +18,7 @@ function Home() {
 
   const normalImageStyle1 = {
     width: '100%',
-    height: '110%',
+    height: '125%',
     borderRadius: "10px",
     marginTop: -150
   };
