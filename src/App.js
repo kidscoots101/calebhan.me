@@ -12,7 +12,7 @@ function Home() {
 
   const normalImageStyle = {
     width: '100%',
-    height: '50%',
+    height: '75%',
     borderRadius: "10px"
   };
 
@@ -20,32 +20,32 @@ function Home() {
     width: '100%',
     height: '125%',
     borderRadius: "10px",
-    marginTop: -150
+    marginTop: -65
   };
 
   const tallImageStyle = {
     width: '100%',
-    height: '300px',
+    height: '250px',
     objectFit: 'cover',
     borderRadius: "10px",
   };
 
   const shortImageStyle = {
     width: '100%',
-    height: '150px',
+    height: '250px',
     objectFit: 'cover',
-    borderRadius: "10px"
-
+    borderRadius: "10px",
   };
 
   return (
     <div style={{ alignSelf: "flex-start" }}>
-      <p style={{ marginTop: 50 }}>hey, I'm caleb 👋</p>
+      <p style={{marginTop: 50}}>
+        hey, I'm <a target="_blank" href="https://www.linkedin.com/in/caleb-han-792349235/" style={{textDecoration:'underline', color: 'white'}}>caleb</a> 👋
+      </p>
       <text style={{ fontSize: 16, marginTop: 0, color: "#d4d4d4" }} t>
-        I’m a student entrepreneur and debater. I currently lead my schools
-        debate club and run a digital agency on the side, where I lead business
-        strategy and development, gaining 42 new clients and 89 new website
-        deployments in 2023 alone.
+      An eager start-up enthusiast, making ideas turn into reality. As a goal-driven individual, I plan to launch my own start-up in the near future. 
+      Innovation and creativity fuel my passion for start-ups. 
+      I create software, for the better of society.
       </text>{" "}
       <br />
       <div style={gridContainerStyle}>
@@ -73,9 +73,8 @@ function Projects() {
     <div style={{ alignSelf: "flex-start" }}>
       <p style={{ marginTop: 50 }}>cool projects</p>
       <text style={{ fontSize: 18, marginTop: 0, color: "#d4d4d4" }} t>
-        Webxial Digital is the first & only digital agency specialising in
-        property and recognised by top real estate agencies.
-      </text>{" "}
+       i've done a fair bit of projects, each with hundreds or even thousands of (active) users.
+      </text>
       <br />
       <div
         style={{
@@ -86,14 +85,13 @@ function Projects() {
         }}
       />
       <div style={{ marginBottom: 10 }}>
-        <p style={{ fontSize: 22, marginBottom: 5 }}>Webxial</p>
+        <p style={{ fontSize: 22, marginBottom: 5 }}>GrowCalth</p>
         <text style={{ fontSize: 15, color: "rgb(163 163 163)" }}>
-          Business Strategy Director, 2021-present
+          Founder/Lead Developer, 2022-present
         </text>{" "}
         <br />
         <p style={{ fontSize: 18, color: "#d4d4d4" }}>
-          Webxial Digital is the first & only digital agency specialising in
-          property and recognised by top real estate agencies.
+          School-based fitness platform tracking students and staff physical activity levels. Integrated with the "house points" systems to incentivise healthy living.
         </p>
         <p
           style={{
@@ -103,10 +101,8 @@ function Projects() {
             color: "#d4d4d4",
           }}
         >
-          • In 2021, I was promoted to Director of DevRel. We translated
-          customer pain back into the product roadmap. We spoke at conferences,
-          wrote blog posts, and created videos. We built open-source examples
-          and contributed back to the product.
+          • Started as just an idea in 2022, which lead to the official launch of the product in April 2024. Personally, I lead the Android developement
+          of the app - integrating firebase configurations and the Google Fit API.
         </p>
         <p
           style={{
@@ -116,18 +112,11 @@ function Projects() {
             color: "#d4d4d4",
           }}
         >
-          • In 2022, I was promoted to VP of Developer Experience, now also
-          leading our product documentation team. My team created a new free
-          course to teach Next.js, which had 17 million page views that year. I
-          shipped. I partnered with our open-source community, collaborating
-          with frameworks like Nuxt and Astro and sponsoring individuals and
-          projects.
+          • Within the span of one week, we gained over 800 user sign-ups and millions of step counts accumulated by users. To date, we've got ~58 million steps
+          by our users, equivalent to the distance of walking from Singpaore to New York and back.
         </p>
         <p style={{ fontSize: 18, color: "#d4d4d4" }}>
-          Since I joined Vercel in 2020, Next.js active developers have grown
-          1000%, now at ~900k. Next.js is now a top 10 software project on
-          GitHub with 121k stars. It's used by Walmart, ChatGPT, Starbucks,
-          Okta, Datastax, Notion, and more.
+          Available on both iOS App Store and Google Play Store.
         </p>
       </div>
       <div
@@ -139,14 +128,13 @@ function Projects() {
         }}
       />
       <div style={{ marginBottom: 10 }}>
-        <p style={{ fontSize: 22, marginBottom: 5 }}>Webxial</p>
+        <p style={{ fontSize: 22, marginBottom: 5 }}>AttendINC/ExiSST</p>
         <text style={{ fontSize: 15, color: "rgb(163 163 163)" }}>
-          Business Strategy Director, 2021-present
+          Developer, 2023-present
         </text>{" "}
         <br />
         <p style={{ fontSize: 18, color: "#d4d4d4" }}>
-          Webxial Digital is the first & only digital agency specialising in
-          property and recognised by top real estate agencies.
+          Minimising manual work, maximising automation.
         </p>
         <p
           style={{
@@ -156,10 +144,9 @@ function Projects() {
             color: "#d4d4d4",
           }}
         >
-          • In 2021, I was promoted to Director of DevRel. We translated
-          customer pain back into the product roadmap. We spoke at conferences,
-          wrote blog posts, and created videos. We built open-source examples
-          and contributed back to the product.
+          • Essentially, we took away to whole idea of manually taking attendance of students, automating the process allowing students to mark their own attendnace.
+          How it works is that students login to their Google Account, scan a QR code, data is sent from their device to our server and their email is marked in a pre-configured
+          Google Spreadsheet.
         </p>
         <p
           style={{
@@ -169,18 +156,11 @@ function Projects() {
             color: "#d4d4d4",
           }}
         >
-          • In 2022, I was promoted to VP of Developer Experience, now also
-          leading our product documentation team. My team created a new free
-          course to teach Next.js, which had 17 million page views that year. I
-          shipped. I partnered with our open-source community, collaborating
-          with frameworks like Nuxt and Astro and sponsoring individuals and
-          projects.
+          • There are 2 sides of this "ecosystem" - a Mac and a companion Web App. It involves prorieatary encryption algorithms and data transfer between servers.
+          We "spoof-ed" the system such that it's not only safe and secure, but students won't be able to cheat the system in any way too.
         </p>
         <p style={{ fontSize: 18, color: "#d4d4d4" }}>
-          Since I joined Vercel in 2020, Next.js active developers have grown
-          1000%, now at ~900k. Next.js is now a top 10 software project on
-          GitHub with 121k stars. It's used by Walmart, ChatGPT, Starbucks,
-          Okta, Datastax, Notion, and more.
+          This project has been used in many school events, such as the SST Model United Nations (MUN) and Student Congress. With over 1000 active users.
         </p>
       </div>
       <div
@@ -192,14 +172,13 @@ function Projects() {
         }}
       />
       <div style={{ marginBottom: 10 }}>
-        <p style={{ fontSize: 22, marginBottom: 5 }}>Webxial</p>
+        <p style={{ fontSize: 22, marginBottom: 5 }}>FishML</p>
         <text style={{ fontSize: 15, color: "rgb(163 163 163)" }}>
-          Business Strategy Director, 2021-present
+          Developer, 2024
         </text>{" "}
         <br />
         <p style={{ fontSize: 18, color: "#d4d4d4" }}>
-          Webxial Digital is the first & only digital agency specialising in
-          property and recognised by top real estate agencies.
+         Classification program to accurately identify diseases in fishes.
         </p>
         <p
           style={{
@@ -209,31 +188,11 @@ function Projects() {
             color: "#d4d4d4",
           }}
         >
-          • In 2021, I was promoted to Director of DevRel. We translated
-          customer pain back into the product roadmap. We spoke at conferences,
-          wrote blog posts, and created videos. We built open-source examples
-          and contributed back to the product.
-        </p>
-        <p
-          style={{
-            fontSize: 18,
-            marginLeft: "20px",
-            maxWidth: "90%",
-            color: "#d4d4d4",
-          }}
-        >
-          • In 2022, I was promoted to VP of Developer Experience, now also
-          leading our product documentation team. My team created a new free
-          course to teach Next.js, which had 17 million page views that year. I
-          shipped. I partnered with our open-source community, collaborating
-          with frameworks like Nuxt and Astro and sponsoring individuals and
-          projects.
+          • Utilising Convolutional Neural Networks, we trained our model on large amounts of data to classify fishes into respective 'diseased' or 'not diseased' classes. 
+          Obtained 88% accurate predictions rate.
         </p>
         <p style={{ fontSize: 18, color: "#d4d4d4" }}>
-          Since I joined Vercel in 2020, Next.js active developers have grown
-          1000%, now at ~900k. Next.js is now a top 10 software project on
-          GitHub with 121k stars. It's used by Walmart, ChatGPT, Starbucks,
-          Okta, Datastax, Notion, and more.
+         Used for my 2024 Computing+ coursework submission and the Singpaore Science and Engineering Fair (SSEF) project.
         </p>
       </div>
     </div>
@@ -263,8 +222,29 @@ function Volunteering() {
       </p>
       </div>
 
-      <img src={ require('./hackomania.jpeg')} style={{width: "50%"}} />
+      <img src={ require('./hackomania.jpeg')} style={{width: "50%", borderRadius: 10, marginLeft: 10}} />
+      
       </div>
+      <p style={{fontSize: 22}}>Speaker at Geekcamp {" "}
+      <text style={{ fontSize: 15, color: "rgb(163 163 163)", marginTop: 0 }}>
+          2023
+        </text>{" "}
+      </p>
+      <div style={{display: 'flex'}}>
+        <div style={{flexDirection: 'row'}}>
+      <p style={{fontSize: 18, color: '#d4d4d4'}}>
+      • Gave a talk at Geekcamp, sharing more about projects done by SST Inc and the engineering proccesses behind them.
+      </p> 
+      <p style={{fontSize: 18, color: '#d4d4d4'}}>
+        • Learned more from other people attending the camp and gave me confidence in public speaking skills.
+      </p>
+      </div>
+
+      <img src={ require('./geekcamp.png')} style={{width: "50%", borderRadius: 10, marginLeft: 10}} />
+      
+      </div>
+      
+      
 
     </div>
   );
@@ -289,20 +269,25 @@ function App() {
     <div className="App" >
       <header className="App-header">
         <nav className="navigation" style={{marginTop: 60}}>
-          <a href="#home" onClick={() => handleNavigation("home")}>
+          <a href="#home" onClick={() => handleNavigation("home")}
+           style={{fontWeight: 'bold'}}
+            >
             home
           </a>
-          <a
+          {/* <a
             href="#competitions"
             onClick={() => handleNavigation("competitions")}
           >
             competitions
-          </a>
-          <a href="#projects" onClick={() => handleNavigation("projects")}>
+          </a> */}
+          <a 
+          style={{fontWeight: 'bold'}}
+          href="#projects" onClick={() => handleNavigation("projects")}>
             projects
           </a>
           <a
             href="#volunteering"
+            style={{fontWeight: 'bold'}}
             onClick={() => handleNavigation("volunteering")}
           >
             volunteering
