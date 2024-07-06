@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 function Home() {
@@ -200,52 +200,109 @@ function Projects() {
 }
 
 
+
 function Volunteering() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const styles = {
+    container: {
+      alignSelf: 'flex-start',
+      padding: '20px',
+    },
+    sectionTitle: {
+      marginTop: 50,
+      fontSize: '1.5rem', // Responsive font size
+    },
+    eventTitle: {
+      fontSize: '1.75rem',
+      display: 'flex',
+      alignItems: 'center',
+      marginTop: '20px',
+    },
+    eventDate: {
+      fontSize: '1rem',
+      color: 'rgb(163, 163, 163)',
+      marginLeft: '10px',
+    },
+    flexRow: {
+      display: 'flex',
+      flexDirection: isMobile ? 'column' : 'row',
+      alignItems: isMobile ? 'center' : 'flex-start',
+      marginTop: '20px',
+    },
+    textContainer: {
+      flexDirection: 'column',
+      flexBasis: isMobile ? '100%' : '50%',
+      marginBottom: isMobile ? '20px' : '0',
+      marginRight: isMobile ? '0' : '10px',
+    },
+    description: {
+      fontSize: '1rem',
+      color: '#d4d4d4',
+      marginBottom: '10px',
+    },
+    image: {
+      width: isMobile ? '80%' : '50%',
+      maxWidth: '400px',
+      borderRadius: '10px',
+      marginTop: isMobile ? '10px' : '0',
+      marginLeft: isMobile ? '0' : '10px',
+    },
+  };
+
   return (
-    <div style={{ alignSelf: "flex-start"}}>
-      <p style={{marginTop: 50}}>volunteerism</p>
-      <p style={{fontSize: 22}}>HackOMania Student Volunteer {" "}
-      <text style={{ fontSize: 15, color: "rgb(163 163 163)", marginTop: 0 }}>
-          2024
-        </text>{" "}
+    <div style={styles.container}>
+      <p style={styles.sectionTitle}>volunteerism</p>
+      <p style={styles.eventTitle}>
+        HackOMania Student Volunteer{" "}
+        <span style={styles.eventDate}>2024</span>
       </p>
-      <div style={{display: 'flex'}}>
-        <div style={{flexDirection: 'row'}}>
-      <p style={{fontSize: 18, color: '#d4d4d4'}}>
-      • I served as a student helper during this hackathon, held at the Rakuten Office in Singapore.  
-      </p> 
-      <p style={{fontSize: 18, color: '#d4d4d4'}}>
-        • I helped the team manage logistisc and distribute out food and swag during the Hackathon itself.
-      </p>
-      <p style={{fontSize: 18, color: '#d4d4d4'}}>
-        • Overall was a fun experience, managed to network with numerous SST Alumni and heard about the innovative products teams made in 24 hours.
-      </p>
+      <div style={styles.flexRow}>
+        <div style={styles.textContainer}>
+          <p style={styles.description}>
+            • I served as a student helper during this hackathon, held at the Rakuten Office in Singapore.
+          </p>
+          <p style={styles.description}>
+            • I helped the team manage logistics and distribute food and swag during the Hackathon itself.
+          </p>
+          <p style={styles.description}>
+            • Overall was a fun experience, managed to network with numerous SST Alumni and heard about the innovative products teams made in 24 hours.
+          </p>
+        </div>
+        <img
+          src={require('./hackomania.jpeg')}
+          alt="HackOMania"
+          style={styles.image}
+        />
       </div>
-
-      <img src={ require('./hackomania.jpeg')} style={{width: "50%", borderRadius: 10, marginLeft: 10}} />
-      
-      </div>
-      <p style={{fontSize: 22}}>Speaker at Geekcamp {" "}
-      <text style={{ fontSize: 15, color: "rgb(163 163 163)", marginTop: 0 }}>
-          2023
-        </text>{" "}
+      <p style={styles.eventTitle}>
+        Speaker at Geekcamp{" "}
+        <span style={styles.eventDate}>2023</span>
       </p>
-      <div style={{display: 'flex'}}>
-        <div style={{flexDirection: 'row'}}>
-      <p style={{fontSize: 18, color: '#d4d4d4'}}>
-      • Gave a talk at Geekcamp, sharing more about projects done by SST Inc and the engineering proccesses behind them.
-      </p> 
-      <p style={{fontSize: 18, color: '#d4d4d4'}}>
-        • Learned more from other people attending the camp and gave me confidence in public speaking skills.
-      </p>
+      <div style={styles.flexRow}>
+        <div style={styles.textContainer}>
+          <p style={styles.description}>
+            • Gave a talk at Geekcamp, sharing more about projects done by SST Inc and the engineering processes behind them.
+          </p>
+          <p style={styles.description}>
+            • Learned more from other people attending the camp and gained confidence in public speaking skills.
+          </p>
+        </div>
+        <img
+          src={require('./geekcamp.png')}
+          alt="Geekcamp"
+          style={styles.image}
+        />
       </div>
-
-      <img src={ require('./geekcamp.png')} style={{width: "50%", borderRadius: 10, marginLeft: 10}} />
-      
-      </div>
-      
-      
-
     </div>
   );
 }
