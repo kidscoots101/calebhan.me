@@ -28,12 +28,12 @@ function Home() {
 
   const normalImageStyle = {
     ...imageStyleBase,
-    height: isMobile ? '150px' : '75%',
+    height: isMobile ? '250px' : '75%',
   };
 
   const normalImageStyle1 = {
     ...imageStyleBase,
-    height: isMobile ? '200px' : '125%',
+    height: isMobile ? '250px' : '125%',
     marginTop: isMobile ? '10px' : '-65px',
   };
 
@@ -133,7 +133,7 @@ function Projects() {
           Founder/Lead Developer, 2022-present
         </text>{" "}
         <br />
-        <img src={require("./growcalth.png")} style={{height: 100, borderRadius: 15, marginTop: 10}}/>
+        <img src={require("./growcalth.png")} style={{height: 100, borderRadius: 13, marginTop: 10}}/>
 
         <p style={{ fontSize: 18, color: "#d4d4d4" }}>
           School-based fitness platform tracking students and staff physical activity levels. Integrated with the "house points" systems to incentivise healthy living.
