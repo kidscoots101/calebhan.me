@@ -133,6 +133,8 @@ function Projects() {
           Founder/Lead Developer, 2022-present
         </text>{" "}
         <br />
+        <img src={require("./growcalth.png")} style={{height: 100, borderRadius: 15, marginTop: 10}}/>
+
         <p style={{ fontSize: 18, color: "#d4d4d4" }}>
           School-based fitness platform tracking students and staff physical activity levels. Integrated with the "house points" systems to incentivise healthy living.
         </p>
@@ -176,6 +178,7 @@ function Projects() {
           Developer, 2023-present
         </text>{" "}
         <br />
+        <img src={require("./exisst.png")} style={{height: 100, borderRadius: 15, marginTop: 10}}/>
         <p style={{ fontSize: 18, color: "#d4d4d4" }}>
           Minimising manual work, maximising automation.
         </p>
