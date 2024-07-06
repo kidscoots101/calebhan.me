@@ -2,60 +2,103 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 function Home() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const gridContainerStyle = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)',
     gridGap: '10px',
-    marginTop: 30,
-    marginBottom: 20
+    marginBottom: 20,
+  };
+
+  const imageStyleBase = {
+    width: '100%',
+    borderRadius: '10px',
+    objectFit: 'cover',
   };
 
   const normalImageStyle = {
-    width: '100%',
-    height: '75%',
-    borderRadius: "10px"
+    ...imageStyleBase,
+    height: isMobile ? '150px' : '75%',
   };
 
   const normalImageStyle1 = {
-    width: '100%',
-    height: '125%',
-    borderRadius: "10px",
-    marginTop: -65
+    ...imageStyleBase,
+    height: isMobile ? '200px' : '125%',
+    marginTop: isMobile ? '10px' : '-65px',
   };
 
   const tallImageStyle = {
-    width: '100%',
-    height: '250px',
-    objectFit: 'cover',
-    borderRadius: "10px",
+    ...imageStyleBase,
+    height: isMobile ? '300px' : '250px',
   };
 
   const shortImageStyle = {
-    width: '100%',
-    height: '250px',
-    objectFit: 'cover',
-    borderRadius: "10px",
+    ...imageStyleBase,
+    height: isMobile ? '150px' : '250px',
   };
 
   return (
-    <div style={{ alignSelf: "flex-start" }}>
-      <p style={{marginTop: 50}}>
-        hey, I'm <a target="_blank" href="https://www.linkedin.com/in/caleb-han-792349235/" style={{textDecoration:'underline', color: 'white'}}>caleb</a> 👋
+    <div style={{ alignSelf: 'flex-start' }}>
+      <p style={{ marginTop: 50 }}>
+        hey, I'm{' '}
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/caleb-han-792349235/"
+          style={{ textDecoration: 'underline', color: 'white' }}
+        >
+          caleb
+        </a>{' '}
+        👋
       </p>
-      <text style={{ fontSize: 16, marginTop: 0, color: "#d4d4d4" }} t>
-      An eager start-up enthusiast, making ideas turn into reality. As a goal-driven individual, I plan to launch my own start-up in the near future. 
-      Innovation and creativity fuel my passion for start-ups. 
-      I create software, for the better of society.
-      </text>{" "}
+      <p style={{ fontSize: 16, marginTop: 0, color: '#d4d4d4' }}>
+        An eager start-up enthusiast, making ideas turn into reality. As a
+        goal-driven individual, I plan to launch my own start-up in the near
+        future. Innovation and creativity fuel my passion for start-ups. I
+        create software, for the better of society.
+      </p>
       <br />
       <div style={gridContainerStyle}>
-      <img src={require("./images/image1.png")} alt="Image 1" style={normalImageStyle} />
-      <img src={require("./images/image2.png")} alt="Image 2" style={tallImageStyle} />
-      <img src={require("./images/image3.png")} alt="Image 1" style={normalImageStyle} />
-      <img src={require("./images/image4.png")} alt="Image 1" style={normalImageStyle1} />
-      <img src={require("./images/image5.png")} alt="Image 3" style={shortImageStyle} />
-      <img src={require("./images/image6.png")} alt="Image 1" style={normalImageStyle1}/>
-    </div>
+        <img
+          src={require('./images/image1.png')}
+          alt="Image 1"
+          style={normalImageStyle}
+        />
+        <img
+          src={require('./images/image2.png')}
+          alt="Image 2"
+          style={tallImageStyle}
+        />
+        <img
+          src={require('./images/image3.png')}
+          alt="Image 3"
+          style={normalImageStyle}
+        />
+        <img
+          src={require('./images/image4.png')}
+          alt="Image 4"
+          style={normalImageStyle1}
+        />
+        <img
+          src={require('./images/image5.png')}
+          alt="Image 5"
+          style={shortImageStyle}
+        />
+        <img
+          src={require('./images/image6.png')}
+          alt="Image 6"
+          style={normalImageStyle1}
+        />
+      </div>
     </div>
   );
 }
@@ -220,7 +263,7 @@ function Volunteering() {
     },
     sectionTitle: {
       marginTop: 50,
-      fontSize: '1.5rem', // Responsive font size
+      fontSize: '1.5rem', 
     },
     eventTitle: {
       fontSize: '1.75rem',
