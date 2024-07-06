@@ -353,6 +353,7 @@ function Volunteering() {
   );
 }
 
+
 function App() {
   const [activeTab, setActiveTab] = useState("home");
 
@@ -361,37 +362,47 @@ function App() {
     window.location.hash = `#${tab}`;
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const hash = window.location.hash.substr(1);
     if (hash) {
       setActiveTab(hash);
     }
   }, []);
 
+  const getLinkStyle = (tab) => ({
+    fontWeight: 'bold',
+    color: activeTab === tab ? "#61dafb" : "white",
+  });
+
   return (
-    <div className="App" >
+    <div className="App">
       <header className="App-header">
-        <nav className="navigation" style={{marginTop: 60}}>
-          <a href="#home" onClick={() => handleNavigation("home")}
-           style={{fontWeight: 'bold'}}
-            >
+        <nav className="navigation" style={{ marginTop: 60 }}>
+          <a
+            href="#home"
+            onClick={() => handleNavigation("home")}
+            style={getLinkStyle("home")}
+          >
             home
           </a>
           {/* <a
             href="#competitions"
             onClick={() => handleNavigation("competitions")}
+            style={getLinkStyle("competitions")}
           >
             competitions
           </a> */}
-          <a 
-          style={{fontWeight: 'bold'}}
-          href="#projects" onClick={() => handleNavigation("projects")}>
+          <a
+            href="#projects"
+            onClick={() => handleNavigation("projects")}
+            style={getLinkStyle("projects")}
+          >
             projects
           </a>
           <a
             href="#volunteering"
-            style={{fontWeight: 'bold'}}
             onClick={() => handleNavigation("volunteering")}
+            style={getLinkStyle("volunteering")}
           >
             volunteering
           </a>
