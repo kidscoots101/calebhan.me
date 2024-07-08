@@ -104,12 +104,102 @@ function Home() {
 }
 
 function Competitions() {
+  const competitions = [
+    {
+      image: require('./certificates/sstmun.png'), 
+      description: 'Created an ecosystem to faciliate attendance taking within the 2024 SST MUN. Got a Certificate of Contribution.',
+    },
+    {
+      image: require('./certificates/sstmun.png'), 
+      description: 'This is the description for competition 1.',
+    },
+    {
+      image: require('./certificates/sstmun.png'), 
+      description: 'This is the description for competition 1.',
+    },
+  ];
+
+  const [selectedCompetition, setSelectedCompetition] = useState(null);
+
+  const handleImageClick = (competition) => {
+    setSelectedCompetition(competition);
+  };
+
+  const closeModal = () => {
+    setSelectedCompetition(null);
+  };
+
   return (
-    <div style={{ alignSelf: "flex-start"}}>
-      <p style={{marginTop: 50}}>competitions</p>
+    <div style={{ alignSelf: 'flex-start', marginTop: 50 }}>
+      <p>Achievements</p>
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', 
+        gap: '10px'
+      }}>
+        {competitions.map((comp, index) => (
+          <img
+            key={index}
+            src={comp.image}
+            alt={`Competition ${index + 1}`}
+            style={{ width: '100%', cursor: 'pointer' }}
+            onClick={() => handleImageClick(comp)}
+          />
+        ))}
+      </div>
+      
+      {selectedCompetition && (
+        <div style={{
+          position: 'fixed', 
+          top: 0, 
+          left: 0, 
+          width: '100%', 
+          height: '100%', 
+          backgroundColor: 'rgba(0, 0, 0, 0.5)', 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center'
+        }}>
+          <div style={{ 
+            backgroundColor: 'white', 
+            padding: '20px', 
+            borderRadius: '10px', 
+            maxWidth: '500px', 
+            textAlign: 'center'
+          }}>
+            <img 
+              src={selectedCompetition.image} 
+              alt="Certificate" 
+              style={{ width: '100%' }} 
+            />
+            <p style={{color: 'black'}}>{selectedCompetition.description}</p>
+            <button
+  onClick={closeModal}
+  style={{
+    marginTop: '10px',
+    padding: '10px 20px',
+    backgroundColor: '#007BFF',
+    color: '#FFFFFF',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    transition: 'background-color 0.3s ease',
+  }}
+  onMouseEnter={(e) => (e.target.style.backgroundColor = '#0056b3')}
+  onMouseLeave={(e) => (e.target.style.backgroundColor = '#007BFF')}
+>
+  Close
+</button>
+
+          </div>
+        </div>
+      )}
     </div>
   );
 }
+
 
 function Projects() {
   return (
@@ -385,13 +475,13 @@ function App() {
           >
             home
           </a>
-          {/* <a
-            href="#competitions"
+          <a
+            href="#competitions" 
             onClick={() => handleNavigation("competitions")}
             style={getLinkStyle("competitions")}
           >
-            competitions
-          </a> */}
+            achievements
+          </a>
           <a
             href="#projects"
             onClick={() => handleNavigation("projects")}
@@ -415,5 +505,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
