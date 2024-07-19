@@ -110,12 +110,12 @@ function Competitions() {
       description: 'Created an ecosystem to faciliate attendance taking within the 2024 SST MUN. Got a Certificate of Contribution.',
     },
     {
-      image: require('./certificates/sstmun.png'), 
-      description: 'This is the description for competition 1.',
+      image: require('./certificates/noi.jpg'), 
+      description: 'My participation in the 2024 National Olympiad Informatics - in which I scored 211 points.',
     },
     {
-      image: require('./certificates/sstmun.png'), 
-      description: 'This is the description for competition 1.',
+      image: require('./certificates/eap.jpg'), 
+      description: 'I have participated in the Early Access Program (EAP) by Affindi, utilising tools used for a holisitc identity online. I also gave suggestions and improvements to the technology.',
     },
   ];
 
