@@ -117,6 +117,10 @@ function Competitions() {
       image: require('./certificates/eap.jpg'), 
       description: 'I have participated in the Early Access Program (EAP) by Affindi, utilising tools used for a holisitc identity online. I also gave suggestions and improvements to the technology.',
     },
+    {
+      image: require('./certificates/meta.jpg'), 
+      description: 'Delving more into the technology sector, I signed up for a bootacamp by Meta to experiement with their AR Filter techonologies, where I coded my own Instagram Filter.',
+    },
   ];
 
   const [selectedCompetition, setSelectedCompetition] = useState(null);
