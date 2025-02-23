@@ -129,6 +129,11 @@ function Competitions() {
       image: require("./certificates/perse.jpg"),
       description: "Perse Coding Team Challenge 2023",
     },
+    {
+      image: require("./certificates/impact.jpeg"),
+      description:
+        "Obtained a Certificate of Impact award at the Opportunity X 2023 Conference, where we preseneted about our science research projecto on the Investigation of the wine yeast on the fermentation on the different types of rice.",
+    },
   ];
 
   const [selectedCompetition, setSelectedCompetition] = useState(null);
