@@ -53,6 +53,7 @@ function Home() {
         hey, I'm{" "}
         <a
           target="_blank"
+          rel="noreferrer"
           href="https://www.linkedin.com/in/caleb-han-792349235/"
           style={{ textDecoration: "underline", color: "white" }}
         >
@@ -70,32 +71,32 @@ function Home() {
       <div style={gridContainerStyle}>
         <img
           src={require("./images/image1.png")}
-          alt="Image 1"
+          alt=""
           style={normalImageStyle}
         />
         <img
           src={require("./images/image2.png")}
-          alt="Image 2"
+          alt=""
           style={tallImageStyle}
         />
         <img
           src={require("./images/image3.png")}
-          alt="Image 3"
+          alt=""
           style={normalImageStyle}
         />
         <img
           src={require("./images/image4.png")}
-          alt="Image 4"
+          alt=""
           style={normalImageStyle1}
         />
         <img
           src={require("./images/image5.png")}
-          alt="Image 5"
+          alt=""
           style={shortImageStyle}
         />
         <img
           src={require("./images/image6.png")}
-          alt="Image 6"
+          alt=""
           style={normalImageStyle1}
         />
       </div>
@@ -247,6 +248,7 @@ function Projects() {
         <br />
         <img
           src={require("./growcalth.png")}
+          alt="GrowCalth"
           style={{ height: 100, borderRadius: 13, marginTop: 10 }}
         />
         <p style={{ fontSize: 18, color: "#d4d4d4" }}>
@@ -300,6 +302,7 @@ function Projects() {
         <br />
         <img
           src={require("./exisst.png")}
+          alt="AttendINC and ExiSST"
           style={{ height: 100, borderRadius: 15, marginTop: 10 }}
         />
         <p style={{ fontSize: 18, color: "#d4d4d4" }}>
