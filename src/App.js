@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import growcalthShoe from "./growcalth-shoe.svg";
 
 function Home() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -45,6 +46,13 @@ function Home() {
   const shortImageStyle = {
     ...imageStyleBase,
     height: isMobile ? "150px" : "250px",
+  };
+
+  const contactLinkStyle = {
+    color: "white",
+    textDecoration: "underline",
+    marginRight: 18,
+    whiteSpace: "nowrap",
   };
 
   return (
@@ -99,6 +107,30 @@ function Home() {
           alt=""
           style={normalImageStyle1}
         />
+      </div>
+      <div style={{ marginTop: 35, marginBottom: 20 }}>
+        <p style={{ fontSize: 18, marginBottom: 8 }}>contact</p>
+        <div style={{ fontSize: 16, lineHeight: 1.8 }}>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://t.me/kidscoots101"
+            style={contactLinkStyle}
+          >
+            Telegram
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.linkedin.com/in/caleb-han-792349235/"
+            style={contactLinkStyle}
+          >
+            LinkedIn
+          </a>
+          <a href="mailto:caleb@growcalth.com" style={contactLinkStyle}>
+            caleb@growcalth.com
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -247,7 +279,7 @@ function Projects() {
         </text>{" "}
         <br />
         <img
-          src={require("./growcalth.png")}
+          src={growcalthShoe}
           alt="GrowCalth"
           style={{ height: 100, borderRadius: 13, marginTop: 10 }}
         />
@@ -284,6 +316,47 @@ function Projects() {
         </p>
         <p style={{ fontSize: 18, color: "#d4d4d4" }}>
           Available on both iOS App Store and Google Play Store.
+        </p>
+      </div>
+      <div
+        style={{
+          backgroundColor: "rgb(163,163,163)",
+          width: "100%",
+          height: 0.5,
+          marginTop: 30,
+        }}
+      />
+      <div style={{ marginBottom: 10 }}>
+        <p style={{ fontSize: 22, marginBottom: 5 }}>Vision-Language Model (VLM)</p>
+        <text style={{ fontSize: 15, color: "rgb(163 163 163)" }}>
+          Developer, 2026
+        </text>{" "}
+        <br />
+        <p style={{ fontSize: 18, color: "#d4d4d4" }}>
+          A vision-language model project exploring how image understanding can
+          be connected with natural-language reasoning.
+        </p>
+        <p
+          style={{
+            fontSize: 18,
+            marginLeft: "20px",
+            maxWidth: "90%",
+            color: "#d4d4d4",
+          }}
+        >
+          • Built around multimodal AI workflows, combining visual inputs with
+          text prompts to analyse, explain, and reason about image-based tasks.
+        </p>
+        <p
+          style={{
+            fontSize: 18,
+            marginLeft: "20px",
+            maxWidth: "90%",
+            color: "#d4d4d4",
+          }}
+        >
+          • Strengthened my practical understanding of modern machine learning
+          systems, model evaluation, and user-facing AI product design.
         </p>
       </div>
       <div
