@@ -114,7 +114,7 @@ function Home() {
           <a
             target="_blank"
             rel="noreferrer"
-            href="https://t.me/kidscoots101"
+            href="https://t.me/kidscoots"
             style={contactLinkStyle}
           >
             Telegram
