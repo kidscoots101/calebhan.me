@@ -327,14 +327,16 @@ function Projects() {
         }}
       />
       <div style={{ marginBottom: 10 }}>
-        <p style={{ fontSize: 22, marginBottom: 5 }}>Vision-Language Model (VLM)</p>
+        <p style={{ fontSize: 22, marginBottom: 5 }}>
+          Do Vision-Language Models Perceive Visual Illusions?
+        </p>
         <text style={{ fontSize: 15, color: "rgb(163 163 163)" }}>
-          Developer, 2026
+          Researcher/Developer, 2026
         </text>{" "}
         <br />
         <p style={{ fontSize: 18, color: "#d4d4d4" }}>
-          A vision-language model project exploring how image understanding can
-          be connected with natural-language reasoning.
+          Research project evaluating how GPT-4o handles visual illusions, and
+          whether fluent answers are actually grounded in visual evidence.
         </p>
         <p
           style={{
@@ -344,8 +346,9 @@ function Projects() {
             color: "#d4d4d4",
           }}
         >
-          • Built around multimodal AI workflows, combining visual inputs with
-          text prompts to analyse, explain, and reason about image-based tasks.
+          • Built a 500-image evaluation dataset across contour, contrast-based,
+          depth, geometric, and motion illusions, then tested categorisation,
+          explanation quality, and pixel-level localisation.
         </p>
         <p
           style={{
@@ -355,9 +358,30 @@ function Projects() {
             color: "#d4d4d4",
           }}
         >
-          • Strengthened my practical understanding of modern machine learning
-          systems, model evaluation, and user-facing AI product design.
+          • Found that GPT-4o reached 76.8% categorisation accuracy overall,
+          while still struggling with visual grounding, especially for depth and
+          geometric illusions.
         </p>
+        <p
+          style={{
+            fontSize: 18,
+            marginLeft: "20px",
+            maxWidth: "90%",
+            color: "#d4d4d4",
+          }}
+        >
+          • Proposed an Evidence-Constrained Illusion Evaluation workflow that
+          makes the model localise visual evidence before producing a reasoning
+          explanation.
+        </p>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="/visual.pdf"
+          style={{ fontSize: 18, color: "white", textDecoration: "underline" }}
+        >
+          Read the report
+        </a>
       </div>
       <div
         style={{
