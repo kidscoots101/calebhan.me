@@ -49,7 +49,7 @@ function Home() {
   };
 
   const contactLinkStyle = {
-    color: "white",
+    color: "var(--text)",
     textDecoration: "underline",
     marginRight: 18,
     whiteSpace: "nowrap",
@@ -63,13 +63,13 @@ function Home() {
           target="_blank"
           rel="noreferrer"
           href="https://www.linkedin.com/in/caleb-han-792349235/"
-          style={{ textDecoration: "underline", color: "white" }}
+          style={{ textDecoration: "underline", color: "var(--text)" }}
         >
           caleb
         </a>{" "}
         👋
       </p>
-      <p style={{ fontSize: 16, marginTop: 0, color: "#d4d4d4" }}>
+      <p style={{ fontSize: 16, marginTop: 0, color: "var(--muted)" }}>
         An eager start-up enthusiast, making ideas turn into reality. As a
         goal-driven individual, I plan to launch my own start-up in the near
         future. Innovation and creativity fuel my passion for start-ups. I
@@ -216,7 +216,7 @@ function Competitions() {
         >
           <div
             style={{
-              backgroundColor: "white",
+              backgroundColor: "var(--modal-bg)",
               padding: "20px",
               borderRadius: "10px",
               maxWidth: "500px",
@@ -228,14 +228,14 @@ function Competitions() {
               alt="Certificate"
               style={{ width: "100%" }}
             />
-            <p style={{ color: "black" }}>{selectedCompetition.description}</p>
+            <p style={{ color: "var(--modal-text)" }}>{selectedCompetition.description}</p>
             <button
               onClick={closeModal}
               style={{
                 marginTop: "10px",
                 padding: "10px 20px",
-                backgroundColor: "#007BFF",
-                color: "#FFFFFF",
+                backgroundColor: "var(--button-bg)",
+                color: "var(--button-text)",
                 border: "none",
                 borderRadius: "5px",
                 cursor: "pointer",
@@ -243,8 +243,8 @@ function Competitions() {
                 fontWeight: "bold",
                 transition: "background-color 0.3s ease",
               }}
-              onMouseEnter={(e) => (e.target.style.backgroundColor = "#0056b3")}
-              onMouseLeave={(e) => (e.target.style.backgroundColor = "#007BFF")}
+              onMouseEnter={(e) => (e.target.style.backgroundColor = "var(--button-hover)")}
+              onMouseLeave={(e) => (e.target.style.backgroundColor = "var(--button-bg)")}
             >
               Close
             </button>
@@ -259,14 +259,14 @@ function Projects() {
   return (
     <div style={{ alignSelf: "flex-start" }}>
       <p style={{ marginTop: 50 }}>cool projects</p>
-      <text style={{ fontSize: 18, marginTop: 0, color: "#d4d4d4" }} t>
+      <text style={{ fontSize: 18, marginTop: 0, color: "var(--muted)" }} t>
         i've done a fair bit of projects, each with hundreds or even thousands
         of (active) users.
       </text>
       <br />
       <div
         style={{
-          backgroundColor: "rgb(163,163,163)",
+          backgroundColor: "var(--divider)",
           width: "100%",
           height: 0.5,
           marginTop: 30,
@@ -274,7 +274,7 @@ function Projects() {
       />
       <div style={{ marginBottom: 10 }}>
         <p style={{ fontSize: 22, marginBottom: 5 }}>GrowCalth</p>
-        <text style={{ fontSize: 15, color: "rgb(163 163 163)" }}>
+        <text style={{ fontSize: 15, color: "var(--subtle)" }}>
           Founder/Lead Developer, 2022-present
         </text>{" "}
         <br />
@@ -283,7 +283,7 @@ function Projects() {
           alt="GrowCalth"
           style={{ height: 100, borderRadius: 13, marginTop: 10 }}
         />
-        <p style={{ fontSize: 18, color: "#d4d4d4" }}>
+        <p style={{ fontSize: 18, color: "var(--muted)" }}>
           School-based fitness platform tracking students and staff physical
           activity levels. Integrated with the "house points" systems to
           incentivise healthy living.
@@ -293,7 +293,7 @@ function Projects() {
             fontSize: 18,
             marginLeft: "20px",
             maxWidth: "90%",
-            color: "#d4d4d4",
+            color: "var(--muted)",
           }}
         >
           • Started as just an idea in 2022, which lead to the official launch
@@ -306,7 +306,7 @@ function Projects() {
             fontSize: 18,
             marginLeft: "20px",
             maxWidth: "90%",
-            color: "#d4d4d4",
+            color: "var(--muted)",
           }}
         >
           • Within the span of one week, we gained over 800 user sign-ups and
@@ -314,13 +314,13 @@ function Projects() {
           million steps by our users, equivalent to the distance of walking from
           Singpaore to New York and back.
         </p>
-        <p style={{ fontSize: 18, color: "#d4d4d4" }}>
+        <p style={{ fontSize: 18, color: "var(--muted)" }}>
           Available on both iOS App Store and Google Play Store.
         </p>
       </div>
       <div
         style={{
-          backgroundColor: "rgb(163,163,163)",
+          backgroundColor: "var(--divider)",
           width: "100%",
           height: 0.5,
           marginTop: 30,
@@ -330,11 +330,11 @@ function Projects() {
         <p style={{ fontSize: 22, marginBottom: 5 }}>
           Do Vision-Language Models Perceive Visual Illusions?
         </p>
-        <text style={{ fontSize: 15, color: "rgb(163 163 163)" }}>
+        <text style={{ fontSize: 15, color: "var(--subtle)" }}>
           Researcher/Developer, 2026
         </text>{" "}
         <br />
-        <p style={{ fontSize: 18, color: "#d4d4d4" }}>
+        <p style={{ fontSize: 18, color: "var(--muted)" }}>
           Research project evaluating how GPT-4o handles visual illusions, and
           whether fluent answers are actually grounded in visual evidence.
         </p>
@@ -343,7 +343,7 @@ function Projects() {
             fontSize: 18,
             marginLeft: "20px",
             maxWidth: "90%",
-            color: "#d4d4d4",
+            color: "var(--muted)",
           }}
         >
           • Built a 500-image evaluation dataset across contour, contrast-based,
@@ -355,7 +355,7 @@ function Projects() {
             fontSize: 18,
             marginLeft: "20px",
             maxWidth: "90%",
-            color: "#d4d4d4",
+            color: "var(--muted)",
           }}
         >
           • Found that GPT-4o reached 76.8% categorisation accuracy overall,
@@ -367,7 +367,7 @@ function Projects() {
             fontSize: 18,
             marginLeft: "20px",
             maxWidth: "90%",
-            color: "#d4d4d4",
+            color: "var(--muted)",
           }}
         >
           • Proposed an Evidence-Constrained Illusion Evaluation workflow that
@@ -378,14 +378,14 @@ function Projects() {
           target="_blank"
           rel="noreferrer"
           href="/visual.pdf"
-          style={{ fontSize: 18, color: "white", textDecoration: "underline" }}
+          style={{ fontSize: 18, color: "var(--text)", textDecoration: "underline" }}
         >
           Read the report
         </a>
       </div>
       <div
         style={{
-          backgroundColor: "rgb(163,163,163)",
+          backgroundColor: "var(--divider)",
           width: "100%",
           height: 0.5,
           marginTop: 30,
@@ -393,7 +393,7 @@ function Projects() {
       />
       <div style={{ marginBottom: 10 }}>
         <p style={{ fontSize: 22, marginBottom: 5 }}>AttendINC/ExiSST</p>
-        <text style={{ fontSize: 15, color: "rgb(163 163 163)" }}>
+        <text style={{ fontSize: 15, color: "var(--subtle)" }}>
           Developer, 2023-present
         </text>{" "}
         <br />
@@ -402,7 +402,7 @@ function Projects() {
           alt="AttendINC and ExiSST"
           style={{ height: 100, borderRadius: 15, marginTop: 10 }}
         />
-        <p style={{ fontSize: 18, color: "#d4d4d4" }}>
+        <p style={{ fontSize: 18, color: "var(--muted)" }}>
           Minimising manual work, maximising automation.
         </p>
         <p
@@ -410,7 +410,7 @@ function Projects() {
             fontSize: 18,
             marginLeft: "20px",
             maxWidth: "90%",
-            color: "#d4d4d4",
+            color: "var(--muted)",
           }}
         >
           • Essentially, we took away to whole idea of manually taking
@@ -425,7 +425,7 @@ function Projects() {
             fontSize: 18,
             marginLeft: "20px",
             maxWidth: "90%",
-            color: "#d4d4d4",
+            color: "var(--muted)",
           }}
         >
           • There are 2 sides of this "ecosystem" - a Mac and a companion Web
@@ -434,7 +434,7 @@ function Projects() {
           and secure, but students won't be able to cheat the system in any way
           too.
         </p>
-        <p style={{ fontSize: 18, color: "#d4d4d4" }}>
+        <p style={{ fontSize: 18, color: "var(--muted)" }}>
           This project has been used in many school events, such as the SST
           Model United Nations (MUN) and Student Congress. With over 1000 active
           users.
@@ -442,7 +442,7 @@ function Projects() {
       </div>
       <div
         style={{
-          backgroundColor: "rgb(163,163,163)",
+          backgroundColor: "var(--divider)",
           width: "100%",
           height: 0.5,
           marginTop: 30,
@@ -450,11 +450,11 @@ function Projects() {
       />
       <div style={{ marginBottom: 10 }}>
         <p style={{ fontSize: 22, marginBottom: 5 }}>FishML</p>
-        <text style={{ fontSize: 15, color: "rgb(163 163 163)" }}>
+        <text style={{ fontSize: 15, color: "var(--subtle)" }}>
           Developer, 2024
         </text>{" "}
         <br />
-        <p style={{ fontSize: 18, color: "#d4d4d4" }}>
+        <p style={{ fontSize: 18, color: "var(--muted)" }}>
           Classification program to accurately identify diseases in fishes.
         </p>
         <p
@@ -462,14 +462,14 @@ function Projects() {
             fontSize: 18,
             marginLeft: "20px",
             maxWidth: "90%",
-            color: "#d4d4d4",
+            color: "var(--muted)",
           }}
         >
           • Utilising Convolutional Neural Networks, we trained our model on
           large amounts of data to classify fishes into respective 'diseased' or
           'not diseased' classes. Obtained 88% accurate predictions rate.
         </p>
-        <p style={{ fontSize: 18, color: "#d4d4d4" }}>
+        <p style={{ fontSize: 18, color: "var(--muted)" }}>
           Used for my 2024 Computing+ coursework submission and the Singpaore
           Science and Engineering Fair (SSEF) project.
         </p>
@@ -507,7 +507,7 @@ function Volunteering() {
     },
     eventDate: {
       fontSize: "1rem",
-      color: "rgb(163, 163, 163)",
+      color: "var(--subtle)",
       marginLeft: "10px",
     },
     flexRow: {
@@ -524,7 +524,7 @@ function Volunteering() {
     },
     description: {
       fontSize: "1rem",
-      color: "#d4d4d4",
+      color: "var(--muted)",
       marginBottom: "10px",
     },
     image: {
@@ -590,10 +590,20 @@ function Volunteering() {
 
 function App() {
   const [activeTab, setActiveTab] = useState("home");
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = window.localStorage.getItem("theme");
+    return savedTheme === "light" || savedTheme === "dark"
+      ? savedTheme
+      : "dark";
+  });
 
   const handleNavigation = (tab) => {
     setActiveTab(tab);
     window.location.hash = `#${tab}`;
+  };
+
+  const toggleTheme = () => {
+    setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"));
   };
 
   useEffect(() => {
@@ -603,43 +613,64 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    document.body.dataset.theme = theme;
+    window.localStorage.setItem("theme", theme);
+  }, [theme]);
+
   const getLinkStyle = (tab) => ({
     fontWeight: "bold",
-    color: activeTab === tab ? "#61dafb" : "white",
+    color: activeTab === tab ? "var(--accent)" : "var(--text)",
   });
 
   return (
-    <div className="App">
+    <div className="App" data-theme={theme}>
       <header className="App-header">
         <nav className="navigation" style={{ marginTop: 60 }}>
-          <a
-            href="#home"
-            onClick={() => handleNavigation("home")}
-            style={getLinkStyle("home")}
+          <div className="navigation-links">
+            <a
+              href="#home"
+              onClick={() => handleNavigation("home")}
+              style={getLinkStyle("home")}
+            >
+              home
+            </a>
+            <a
+              href="#competitions"
+              onClick={() => handleNavigation("competitions")}
+              style={getLinkStyle("competitions")}
+            >
+              achievements
+            </a>
+            <a
+              href="#projects"
+              onClick={() => handleNavigation("projects")}
+              style={getLinkStyle("projects")}
+            >
+              projects
+            </a>
+            <a
+              href="#volunteering"
+              onClick={() => handleNavigation("volunteering")}
+              style={getLinkStyle("volunteering")}
+            >
+              volunteering
+            </a>
+          </div>
+          <button
+            className="theme-toggle"
+            type="button"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            aria-pressed={theme === "light"}
           >
-            home
-          </a>
-          <a
-            href="#competitions"
-            onClick={() => handleNavigation("competitions")}
-            style={getLinkStyle("competitions")}
-          >
-            achievements
-          </a>
-          <a
-            href="#projects"
-            onClick={() => handleNavigation("projects")}
-            style={getLinkStyle("projects")}
-          >
-            projects
-          </a>
-          <a
-            href="#volunteering"
-            onClick={() => handleNavigation("volunteering")}
-            style={getLinkStyle("volunteering")}
-          >
-            volunteering
-          </a>
+            <span className="theme-toggle__track" aria-hidden="true">
+              <span className="theme-toggle__thumb" />
+            </span>
+            <span className="theme-toggle__symbol" aria-hidden="true">
+              {theme === "dark" ? "☾" : "☀"}
+            </span>
+          </button>
         </nav>
         {activeTab === "home" && <Home />}
         {activeTab === "competitions" && <Competitions />}
