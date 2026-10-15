@@ -2,6 +2,26 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import growcalthShoe from "./growcalth-shoe.svg";
 
+const SECTION_LINKS = [
+  { id: "home", label: "home" },
+  { id: "achievements", label: "achievements" },
+  { id: "projects", label: "projects" },
+  { id: "volunteering", label: "volunteering" },
+];
+
+const HASH_ALIASES = {
+  competitions: "achievements",
+};
+
+function normalizeSectionId(sectionId) {
+  if (!sectionId) {
+    return "home";
+  }
+
+  const normalizedId = sectionId.replace("#", "");
+  return HASH_ALIASES[normalizedId] || normalizedId;
+}
+
 function Home() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -57,7 +77,7 @@ function Home() {
 
   return (
     <div style={{ alignSelf: "flex-start" }}>
-      <p style={{ marginTop: 50 }}>
+      <p style={{ marginTop: 24 }}>
         hey, I'm{" "}
         <a
           target="_blank"
@@ -180,7 +200,7 @@ function Competitions() {
   };
 
   return (
-    <div style={{ alignSelf: "flex-start", marginTop: 50 }}>
+    <div style={{ alignSelf: "flex-start", marginTop: 12 }}>
       <p>Achievements</p>
       <div
         style={{
@@ -212,6 +232,7 @@ function Competitions() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            zIndex: 100,
           }}
         >
           <div
@@ -258,7 +279,7 @@ function Competitions() {
 function Projects() {
   return (
     <div style={{ alignSelf: "flex-start" }}>
-      <p style={{ marginTop: 50 }}>cool projects</p>
+      <p style={{ marginTop: 12 }}>cool projects</p>
       <text style={{ fontSize: 18, marginTop: 0, color: "var(--muted)" }} t>
         i've done a fair bit of projects, each with hundreds or even thousands
         of (active) users.
@@ -496,7 +517,7 @@ function Volunteering() {
       padding: "20px",
     },
     sectionTitle: {
-      marginTop: 50,
+      marginTop: 12,
       fontSize: "1.5rem",
     },
     eventTitle: {
@@ -589,7 +610,8 @@ function Volunteering() {
 }
 
 function App() {
-  const [activeTab, setActiveTab] = useState("home");
+  const [activeSection, setActiveSection] = useState("home");
+  const [visibleSections, setVisibleSections] = useState(() => new Set(["home"]));
   const [theme, setTheme] = useState(() => {
     const savedTheme = window.localStorage.getItem("theme");
     return savedTheme === "light" || savedTheme === "dark"
@@ -597,9 +619,38 @@ function App() {
       : "dark";
   });
 
-  const handleNavigation = (tab) => {
-    setActiveTab(tab);
-    window.location.hash = `#${tab}`;
+  const markSectionVisible = (sectionId) => {
+    setVisibleSections((currentSections) => {
+      if (currentSections.has(sectionId)) {
+        return currentSections;
+      }
+
+      const nextSections = new Set(currentSections);
+      nextSections.add(sectionId);
+      return nextSections;
+    });
+  };
+
+  const handleNavigation = (event, sectionId) => {
+    event.preventDefault();
+
+    const targetSection = document.getElementById(sectionId);
+    if (!targetSection) {
+      return;
+    }
+
+    setActiveSection(sectionId);
+    markSectionVisible(sectionId);
+    window.history.pushState(null, "", `#${sectionId}`);
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    targetSection.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "start",
+    });
   };
 
   const toggleTheme = () => {
@@ -607,10 +658,19 @@ function App() {
   };
 
   useEffect(() => {
-    const hash = window.location.hash.substr(1);
-    if (hash) {
-      setActiveTab(hash);
+    const sectionId = normalizeSectionId(window.location.hash);
+    if (!SECTION_LINKS.some((section) => section.id === sectionId)) {
+      return;
     }
+
+    setActiveSection(sectionId);
+    markSectionVisible(sectionId);
+    window.requestAnimationFrame(() => {
+      document.getElementById(sectionId)?.scrollIntoView({
+        behavior: "auto",
+        block: "start",
+      });
+    });
   }, []);
 
   useEffect(() => {
@@ -618,44 +678,183 @@ function App() {
     window.localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const getLinkStyle = (tab) => ({
+  useEffect(() => {
+    const sections = SECTION_LINKS.map((section) =>
+      document.getElementById(section.id)
+    ).filter(Boolean);
+
+    if (!sections.length) {
+      return undefined;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      setVisibleSections(new Set(SECTION_LINKS.map((section) => section.id)));
+      return undefined;
+    }
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            markSectionVisible(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "0px 0px -12% 0px",
+        threshold: 0.18,
+      }
+    );
+
+    sections.forEach((section) => revealObserver.observe(section));
+    return () => revealObserver.disconnect();
+  }, []);
+
+  useEffect(() => {
+    let ticking = false;
+    let lastScrollY = window.scrollY;
+    let lastTimestamp = performance.now();
+
+    const updateActiveSection = (timestamp = performance.now()) => {
+      const marker = Math.min(220, window.innerHeight * 0.36);
+      const viewportHeight = window.innerHeight || 1;
+      const documentElement = document.documentElement;
+      const maxScroll = documentElement.scrollHeight - viewportHeight;
+      const scrollProgress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+      const elapsed = Math.max(16, timestamp - lastTimestamp);
+      const scrollDelta = window.scrollY - lastScrollY;
+      const scrollVelocity = Math.max(
+        -1,
+        Math.min(1, scrollDelta / elapsed / 1.25)
+      );
+      let nextSection = "home";
+      let closestDistance = Number.POSITIVE_INFINITY;
+
+      documentElement.style.setProperty(
+        "--scroll-progress",
+        Math.max(0, Math.min(1, scrollProgress)).toFixed(4)
+      );
+      documentElement.style.setProperty(
+        "--scroll-velocity",
+        scrollVelocity.toFixed(4)
+      );
+      documentElement.style.setProperty(
+        "--scroll-speed",
+        Math.abs(scrollVelocity).toFixed(4)
+      );
+      documentElement.style.setProperty(
+        "--scroll-direction",
+        scrollDelta >= 0 ? "1" : "-1"
+      );
+
+      SECTION_LINKS.forEach((section, index) => {
+        const sectionElement = document.getElementById(section.id);
+        if (!sectionElement) {
+          return;
+        }
+
+        const sectionRect = sectionElement.getBoundingClientRect();
+        const sectionCenter = sectionRect.top + sectionRect.height * 0.46;
+        const viewportCenter = viewportHeight * 0.52;
+        const sectionDistance = Math.max(
+          -1,
+          Math.min(1, (sectionCenter - viewportCenter) / viewportHeight)
+        );
+        const distanceAmount = Math.abs(sectionDistance);
+        const containsMarker =
+          sectionRect.top <= marker && sectionRect.bottom >= marker;
+        const distance = Math.abs(sectionRect.top - marker);
+
+        sectionElement.style.setProperty(
+          "--section-parallax",
+          `${(-sectionDistance * 96).toFixed(2)}px`
+        );
+        sectionElement.style.setProperty(
+          "--section-x",
+          `${(sectionDistance * (index % 2 === 0 ? -48 : 48)).toFixed(2)}px`
+        );
+        sectionElement.style.setProperty(
+          "--section-scale",
+          (1 - Math.min(distanceAmount * 0.055, 0.055)).toFixed(3)
+        );
+        sectionElement.style.setProperty(
+          "--section-opacity",
+          (1 - Math.min(distanceAmount * 0.12, 0.12)).toFixed(3)
+        );
+        sectionElement.style.setProperty(
+          "--image-shift",
+          `${(sectionDistance * 68).toFixed(2)}px`
+        );
+        sectionElement.style.setProperty(
+          "--image-shift-fast",
+          `${(sectionDistance * 96).toFixed(2)}px`
+        );
+        sectionElement.style.setProperty(
+          "--image-shift-slow",
+          `${(sectionDistance * 40).toFixed(2)}px`
+        );
+        sectionElement.style.setProperty(
+          "--section-tilt",
+          `${(sectionDistance * (index % 2 === 0 ? 2.1 : -2.1)).toFixed(2)}deg`
+        );
+
+        if (containsMarker || distance < closestDistance) {
+          nextSection = section.id;
+          closestDistance = containsMarker ? -1 : distance;
+        }
+      });
+
+      setActiveSection(nextSection);
+      lastScrollY = window.scrollY;
+      lastTimestamp = timestamp;
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (ticking) {
+        return;
+      }
+
+      ticking = true;
+      window.requestAnimationFrame(updateActiveSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
+  const getLinkStyle = (sectionId) => ({
     fontWeight: "bold",
-    color: activeTab === tab ? "var(--accent)" : "var(--text)",
+    color: activeSection === sectionId ? "var(--accent)" : "var(--text)",
   });
+
+  const getSectionClassName = (sectionId) =>
+    `page-section ${visibleSections.has(sectionId) ? "is-visible" : ""} ${
+      activeSection === sectionId ? "is-active" : ""
+    }`;
 
   return (
     <div className="App" data-theme={theme}>
-      <header className="App-header">
-        <nav className="navigation" style={{ marginTop: 60 }}>
+      <div className="App-shell">
+        <nav className="navigation" aria-label="Primary">
           <div className="navigation-links">
-            <a
-              href="#home"
-              onClick={() => handleNavigation("home")}
-              style={getLinkStyle("home")}
-            >
-              home
-            </a>
-            <a
-              href="#competitions"
-              onClick={() => handleNavigation("competitions")}
-              style={getLinkStyle("competitions")}
-            >
-              achievements
-            </a>
-            <a
-              href="#projects"
-              onClick={() => handleNavigation("projects")}
-              style={getLinkStyle("projects")}
-            >
-              projects
-            </a>
-            <a
-              href="#volunteering"
-              onClick={() => handleNavigation("volunteering")}
-              style={getLinkStyle("volunteering")}
-            >
-              volunteering
-            </a>
+            {SECTION_LINKS.map((section) => (
+              <a
+                key={section.id}
+                href={`#${section.id}`}
+                onClick={(event) => handleNavigation(event, section.id)}
+                style={getLinkStyle(section.id)}
+                aria-current={activeSection === section.id ? "page" : undefined}
+              >
+                {section.label}
+              </a>
+            ))}
           </div>
           <button
             className="theme-toggle"
@@ -672,11 +871,30 @@ function App() {
             </span>
           </button>
         </nav>
-        {activeTab === "home" && <Home />}
-        {activeTab === "competitions" && <Competitions />}
-        {activeTab === "projects" && <Projects />}
-        {activeTab === "volunteering" && <Volunteering />}
-      </header>
+        <div className="scroll-progress" aria-hidden="true" />
+        <main className="site-sections">
+          <section id="home" className={getSectionClassName("home")}>
+            <div className="section-dynamic">
+              <Home />
+            </div>
+          </section>
+          <section id="achievements" className={getSectionClassName("achievements")}>
+            <div className="section-dynamic">
+              <Competitions />
+            </div>
+          </section>
+          <section id="projects" className={getSectionClassName("projects")}>
+            <div className="section-dynamic">
+              <Projects />
+            </div>
+          </section>
+          <section id="volunteering" className={getSectionClassName("volunteering")}>
+            <div className="section-dynamic">
+              <Volunteering />
+            </div>
+          </section>
+        </main>
+      </div>
     </div>
   );
 }
